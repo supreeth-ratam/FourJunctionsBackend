@@ -7,7 +7,7 @@ const cors = require("cors");
 const actorRouter = require("./routes/actorRouter");
 const movieRouter = require("./routes/movieRouter");
 const producerRouter = require("./routes/producerRouter");
-const userRouter = require("../Backend/routes/userRouter");
+const userRouter = require("./routes/userRouter");
 
 const app = express();
 app.use(express.json());
