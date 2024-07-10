@@ -20,7 +20,10 @@ const fetchTrendingMovies = async () => {
 
 exports.getAllMovies = async (req, res) => {
   try {
-    const movie = await Movie.find().populate("producer").populate("actors");
+    const movie = await Movie.find()
+      .populate("producer")
+      .populate("actors")
+      .sort({ _id: -1 });
     res.status(200).json({
       message: "Success",
       data: movie,
