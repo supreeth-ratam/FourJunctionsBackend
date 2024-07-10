@@ -34,7 +34,9 @@ exports.findMovieByActor = async (req, res) => {
   try {
     const { id } = req.params;
     const actorDoc = await Actor.findById(id);
-    const doc = await Movie.find({ actors: id });
+    const doc = await Movie.find({ actors: id })
+      .populate("producer")
+      .populate("actors");
     if (!doc) {
       return res.status(200).json({
         message: "No movies found",
